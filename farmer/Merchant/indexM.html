@@ -1,0 +1,130 @@
+<html>
+<body>
+<form method="post" name="register" action="login.php" onsubmit="return Validate(this)" id="form1">
+<table>
+<tr>
+
+<td> Email address
+<td><input type="text"  name="email">
+<tr>
+<td> Password
+<td><input type="password"  name="password">
+
+<tr>
+
+<td><input type="submit" name="submit" value="Login" id="sub" onclick="return Validate()">
+</table>
+</form>
+
+<script>
+
+//uid = document.register.userid;
+ pid = document.register.password;
+
+
+eid = document.register.email;
+//gid = document.register.gender;
+//lid = document.register.lang;	
+
+function Validate()
+{
+  //alert("hiii");
+    if(evalidate(eid))
+   if(pidvalidate(pid))
+   return true;
+ 
+  return false; 
+ 
+ }
+ 
+ 
+ 
+   function pidvalidate(uid, a, b)
+ { 
+ if(uid.value.length== 0 )
+ { alert("The password should be in between can't be empty" );
+ uid.focus();
+ return false;
+ 
+ }
+ return true;
+ }
+ 
+ function pvalidate(uid)
+ { patt=/^[0-9]+$/;
+ if(uid.value.length== 0 || uid.value.length!=10 )
+ { alert("The phone no lenghth should be 10" );
+ uid.focus();
+ return false;
+ }
+ if(uid.value.match(patt))
+ {
+ return true;
+ }
+ else{
+ alert("The Phone no should conatin only numbers");
+ uid.focus();
+ return false;
+ }
+ return true;
+ }
+ 
+ function nidvalidate(nid)
+ {  patt = /^[a-z A-Z]+$/;
+ if(nid.value.match(patt))
+ { return true;}
+ else
+ {alert("The name should conatin alphabets only" );
+ nid.focus();
+ return false;
+ 
+ }
+ }
+ 
+ function adidvalidate(nid)
+ {  patt = /^[a-z A-Z 0-9]+$/;
+ if(nid.value.match(patt))
+ { return true;}
+ else
+ {alert("The address  should not contaon spaecial symbols " );
+ nid.focus();
+ return false;
+ 
+ }
+ }
+ 
+ function evalidate(eid)
+ { //patt=/^([a-z A-Z 0-9_ \. \-]) + \@ (([a-z A-Z 0-9 \-] + \. ) + ([a-z A-Z]{2,3}) $)/;
+    patt = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if(eid.value.match(patt))
+  return true;
+  else{
+  alert("Invalid email Address");
+  eid.focus;
+  return false;
+  }
+ }
+ 
+	</script>
+	
+	<!--
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+	
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+
+$('#form1').submit(function(e)
+{
+e.preventDefault();
+ $.ajax({
+     type: 'POST',
+     url: 'insert.php',
+     data: $("#form1").serialize(),
+     success: function(response) {
+
+     }
+   });
+});
+</script>-->
+</body>
+</html>

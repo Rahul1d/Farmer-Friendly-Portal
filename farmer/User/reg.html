@@ -1,0 +1,191 @@
+<html>
+<head>
+<link rel="stylesheet"  href="new.css">
+</head>
+<body background="bn.jpg">
+<h1 ALIGN="CENTER" style="color:black;padding:40px;font-size:40px" id="ee">REGISTER NOW!!!!!!!!!!!!!!</H1>
+<form method="post" name="register" action="insert.php" onsubmit="return Validate(this)" id="form1">
+<table>
+<tr>
+<td> CUSTOMER NAME
+<td><input type="text"  name="Name">
+<tr>
+<td> EMAIL ADDRESS
+<td><input type="text"  name="email">
+<tr>
+<td> PASSWORD
+<td><input type="password"  name="password">
+<tr>
+<td> PHONE NO.
+<td><input type="numbers"  name="phoneno" >
+<tr>
+
+
+<td> ADDRESS
+
+<td><textarea  rows="6" cols="50" name="address"  > </textarea>
+
+ <tr>
+<td>
+<td>
+
+
+<tr>
+<td></td>
+<td><input type="submit" name="submit" value="SUBMIT"  id="sub" onclick="return Validate()">
+</table>
+</form>
+
+<script>
+var d=document.getElementById("ee");
+var clr=["red","green","yellow","blue","orange","magenta"];
+var i=0;
+setInterval("ee.style.backgroundColor=clr[i++%clr.length]",500);
+
+//uid = document.register.userid;
+ pid = document.register.password;
+nid = document.register.Name;
+adid = document.register.address;
+
+phid = document.register.phoneno;
+eid = document.register.email;
+	
+
+function Validate()
+{
+ if( nidvalidate(nid))
+ // if(uidvalidate(uid))
+    if(evalidate(eid))
+     if(pidvalidate(pid))
+      if(phvalidate(phid))
+         if(adidvalidate(adid))
+   
+           return true;
+ 
+  return false; 
+ 
+ }
+ 
+function nidvalidate(nid)
+
+ {   patt = /^[a-z A-Z]+$/;
+     if(nid.length==0 || nid.length>30)
+       {
+         alert("Maximum length should be 30");
+        nid.focus();
+       return false;
+      }
+   
+
+ if(nid.value.match(patt))
+ {  
+   return true;
+}
+ else
+ {
+ alert("The name should contain alphabets only" );
+ nid.focus();
+ return false;
+ 
+ }
+
+
+ }
+
+function uidvalidate(uid)
+ {
+ patt=/^[0-9]+$/;
+ if(uid.value.length== 0 || uid.value.length>11)
+ { alert("The user id length should be between 1 and 11" );
+ uid.focus();
+ return false;
+ }
+ if(uid.value.match(patt))
+ {
+ return true;
+ }
+ else{
+ alert("The User ID should contain only numbers");
+ uid.focus();
+ return false;
+ }
+}
+  function pidvalidate(uid)
+ { patt = /^[a-z A-Z]+$/;
+  
+         if(uid.value.length== 0  || uid.value.length > 10 )
+           { alert("The password should have a length of 1 to 10" );
+     
+               uid.focus();
+               return false;
+      }
+      
+ return true;
+ }
+
+    
+ function phvalidate(uid)
+ {
+ patt=/^[0-9]+$/;
+ if(uid.value.length== 0 || uid.value.length!=10 )
+ {  alert("The phone no length should be 10" );
+ uid.focus();
+ return false;
+ }
+ if(uid.value.match(patt))
+ {
+ return true;
+ }
+ else{
+ alert("The Phone no should contain only numbers");
+ uid.focus();
+ return false;
+ }
+ 
+ 
+ 
+ }
+ 
+function evalidate(eid)
+ { //patt=/^([a-z A-Z 0-9_ \. \-]) + \@ (([a-z A-Z 0-9 \-] + \. ) + ([a-z A-Z]{2,3}) $)/;
+   patt = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if(eid.value.match(patt))
+  return true;
+  else{
+  alert("Invalid email Address");
+  eid.focus;
+  return false;
+  }
+ }
+
+
+ function adidvalidate(nid)
+ { 
+   patt = /^[a-z A-Z 0-9]+$/;
+  if(nid.length==0 || nid.length>100)
+     {  alert("Maximum length should be 100");
+      nid.focus();
+      return false;
+   }
+  /*  
+ if(nid.value.match(patt))
+ { return true;
+}*/
+ else
+ {
+//alert("The address  should not contain special symbols " );
+ //nid.focus();
+ return true;
+ 
+ }
+
+ }
+ 
+
+
+
+	</script>
+	
+	
+</body>
+</html>
